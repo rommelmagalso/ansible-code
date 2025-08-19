@@ -11,5 +11,5 @@ jobs:
     
       - name: Test connections with ping module
         run: |
-          ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml
-          ansible all -m ping -i /home/shruti/ansible/inventory.yaml
+          ansible all --list-hosts -i /home/rommel/ansible/inventory.yaml
+          ansible all -m ping -i /home/rommel/ansible/inventory.yaml
