@@ -1,0 +1,40 @@
+name: Generate Ansible Inventory
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-inventory:
+    runs-on: [ ansible-master ]
+
+    steps:
+     
+
+      - name: Create inventory directory
+        run: |
+          sudo -u rommel mkdir -p /home/rommel/ansible/
+          sudo chown -R rommel:rommel /home/rommel/ansible
+
+      - name: Generate inventory.yaml
+        run: |
+          sudo -u rommel bash -c 'cat > /home/rommel/ansible/inventory.yaml' << 'EOF'
+          ---
+          all:
+            children:
+              webservers:
+                hosts:
+                  web01:
+                    ansible_host: 10.194.0.2
+                    ansible_user: rommel
+                    
+
+              databases:
+                hosts:
+                  db01:
+                    ansible_host: 10.160.0.2
+                    ansible_user: rommel
+                    db_version: 14
+                   
+
+              
+          EOF
