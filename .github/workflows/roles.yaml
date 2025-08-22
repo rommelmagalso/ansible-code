@@ -16,13 +16,13 @@ jobs:
 
       - name: Install Ansible Role
         run: |
-          ansible-galaxy install -p /home/shruti/ansible/roles   geerlingguy.nginx
+          ansible-galaxy install -p /home/rommel/ansible/roles   geerlingguy.nginx
       
       - name: Run Ansible playbook
         env:
           ANSIBLE_HOST_KEY_CHECKING: False
         run: |
           pwd
-          cp /home/shruti/ansible/inventory.yaml  /home/shruti/ansible/roles/inventory.yaml 
-          cp /home/shruti/ansible/ansible.cfg  /home/shruti/ansible/roles/ansible.cfg 
-          ansible-playbook  ./ansible/site.yaml -i /home/shruti/ansible/inventory.yaml  --become
+          cp /home/rommel/ansible/inventory.yaml  /home/rommel/ansible/roles/inventory.yaml 
+          cp /home/rommel/ansible/ansible.cfg  /home/rommel/ansible/roles/ansible.cfg 
+          ansible-playbook  ./ansible/site.yaml -i /home/rommel/ansible/inventory.yaml  --become
